@@ -5,7 +5,6 @@ import { fetchBlogs } from "@/function/blog";
 import { CiGlobe } from "react-icons/ci";
 import Link from "next/link";
 
-
 export default async function Home() {
   const blogs = await fetchBlogs();
   console.log('blogs', blogs);
@@ -14,9 +13,9 @@ export default async function Home() {
       <Navbar />
       <div className="container mx-auto px-4 bg-slate-300 min-h-screen">
         <Hero />
-        <div className="w-full bg-white border rounded-xl  mt-4 py-4 shadow-sm">
+        <div className="w-full bg-white border rounded-xl mt-4 py-4 shadow-sm">
           <h1 className="text-2xl mx-3 capitalize">deploy projects</h1>
-          <div className="mt-4 grid grid-cols-4 gap-4">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {
               blogs.map((blog, index) => (
                 <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg overflow-hidden" key={index}>
@@ -39,11 +38,9 @@ export default async function Home() {
                   </div>
                 </div>
               ))
-
             }
           </div>
         </div>
-
       </div>
     </>
   );
